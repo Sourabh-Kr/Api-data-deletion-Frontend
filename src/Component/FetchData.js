@@ -25,7 +25,6 @@ export class FetchData extends Component{
         let update=this.state.post
         // to find the index of the Object array to delete that particular row
         const index=update.findIndex(x=>x.id===i_d);
-        console.log(index)
         update.splice(index,1)
         this.setState({
                 post:update
