@@ -23,10 +23,12 @@ export class FetchData extends Component{
     clickHandler= (i_d)=>{
         alert("Are you sure you want to delete title no.-"+i_d)
         let update=this.state.post
-       update.splice(i_d-1,1)
-       //console.log(update)
-       this.setState({
-             post:update
+        // to find the index of the Object array to delete that particular row
+        const index=update.findIndex(x=>x.id===i_d);
+        console.log(index)
+        update.splice(index,1)
+        this.setState({
+                post:update
         })
     }
 
@@ -57,17 +59,6 @@ export class FetchData extends Component{
                       }
                    </tbody>
                 </table>
-               {/* <ul> 
-                    {
-                        post.length? post.map(ele=>{
-                            return(
-                                <li key={ele.id}> Title: {ele.title}{ele.id} </li>
-                                
-                            )
-                        }):<h1 style={{color:"red"}}>{error}</h1>
-                    }
-                </ul>*/}
-                   
             </div>
                 
             
